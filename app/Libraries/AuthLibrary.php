@@ -33,12 +33,11 @@ class AuthLibrary
             }
 
             $data = JWTAuth::user();
-            $userData = User::where('id', $data->id)->with('role')->first();
 
             return response()->json([
                 'status' => true,
-                'messaje' => 'Bienvenido ' . $userData->name . ' ' . $userData->surname,
-                'userData' => $userData,
+                'messaje' => "Bienvenido $data->full_name",
+                'userData' => $data,
                 'access_token' => $token,
                 'token_type' => 'bearer',
                 'expires_in' => JWTAuth::factory()->getTTL() * 1440

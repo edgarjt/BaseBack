@@ -50,9 +50,22 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     /**
+     * @var string[]
+     */
+    protected $appends = ['full_name'];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function role() {
         return $this->belongsTo(CatRoleModel::class, 'role_id');
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "$this->name $this->first_surname $this->last_surname";
     }
 }
