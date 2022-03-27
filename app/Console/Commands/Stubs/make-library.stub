@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Libraries;
+
+class DummyLibrary
+{
+    public function index()
+    {
+        //TODO
+    }
+}
