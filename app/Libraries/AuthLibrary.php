@@ -2,7 +2,6 @@
 
 namespace App\Libraries;
 
-use App\User;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Facades\JWTAuth;
 class AuthLibrary
@@ -39,8 +38,7 @@ class AuthLibrary
                 'messaje' => "Bienvenido $data->full_name",
                 'userData' => $data,
                 'access_token' => $token,
-                'token_type' => 'bearer',
-                'expires_in' => JWTAuth::factory()->getTTL() * 1440
+                'token_type' => 'bearer'
 
             ]);
         }catch (\Throwable $e) {
