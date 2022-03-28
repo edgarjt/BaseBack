@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,19 +27,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth.jwt')->group( function () {
     Route::prefix('users')->group(function () {
-        Route::get('getUsers', 'UsersController@getUsers');
-        Route::post('addUser', 'UsersController@addUser');
-        Route::delete('deleteUser', 'UsersController@deleteUser');
-        Route::put('updateUser', 'UsersController@updateUser');
-        Route::put('theme', 'UsersController@theme');
+        Route::get('getUsers', [UsersController::class, 'getUsers']);
+        Route::post('addUser', [UsersController::class, 'addUser']);
+        Route::delete('deleteUser', [UsersController::class, 'deleteUser']);
+        Route::put('updateUser', [UsersController::class, 'updateUser']);
+        Route::put('theme', [UsersController::class, 'theme']);
     });
 });
 
 Route::prefix('auth')->group(function () {
-    Route::post('login', 'AuthController@login');
+    Route::post('login', [AuthController::class, 'login']);
     Route::middleware('auth.jwt')->group(function () {
-        Route::post('logout', 'AuthController@logout');
-        Route::post('refresh', 'AuthController@refresh');
-        Route::post('me', 'AuthController@me');
+        Route::post('logout', [AuthController::class, 'logout']);
+        Route::post('refresh', [AuthController::class, 'refresh']);
+        Route::post('me', [AuthController::class, 'me']);
     });
 });
