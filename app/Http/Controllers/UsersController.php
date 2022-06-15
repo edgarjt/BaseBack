@@ -20,32 +20,32 @@ class UsersController extends Controller
     /**
      * @return \App\User[]|\Illuminate\Database\Eloquent\Collection
      */
-    public function getUsers() {
-        return $this->userLibrary->getUsers();
+    public function index() {
+        return $this->userLibrary->index();
     }
 
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function addUser(Request $request) {
-        return $this->userLibrary->addUser($request);
+    public function create(Request $request) {
+        return $this->userLibrary->create($request);
     }
 
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function deleteUser(Request $request) {
-        return $this->userLibrary->deleteUser($request);
+    public function edit(Request $request) {
+        return $this->userLibrary->edit($request);
     }
 
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function updateUser(Request $request) {
-        return $this->userLibrary->updateUser($request);
+    public function destroy(Request $request) {
+        return $this->userLibrary->destroy($request);
     }
 
     /**

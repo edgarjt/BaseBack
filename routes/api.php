@@ -27,19 +27,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth.jwt')->group( function () {
     Route::prefix('users')->group(function () {
-        Route::get('getUsers', [UsersController::class, 'getUsers']);
-        Route::post('addUser', [UsersController::class, 'addUser']);
-        Route::delete('deleteUser', [UsersController::class, 'deleteUser']);
-        Route::put('updateUser', [UsersController::class, 'updateUser']);
-        Route::put('theme', [UsersController::class, 'theme']);
+        Route::get    ('index',      [UsersController::class, 'index'  ]);
+        Route::post   ('create',     [UsersController::class, 'create' ]);
+        Route::put    ('edit',       [UsersController::class, 'edit'   ]);
+        Route::delete ('destroy',    [UsersController::class, 'destroy']);
+        Route::put    ('theme',      [UsersController::class, 'theme'  ]);
     });
 });
 
 Route::prefix('auth')->group(function () {
-    Route::post('login', [AuthController::class, 'login']);
+    Route::post('login',        [AuthController::class, 'login']);
     Route::middleware('auth.jwt')->group(function () {
-        Route::post('logout', [AuthController::class, 'logout']);
-        Route::post('refresh', [AuthController::class, 'refresh']);
-        Route::post('me', [AuthController::class, 'me']);
+        Route::post('logout',   [AuthController::class, 'logout']);
+        Route::post('refresh',  [AuthController::class, 'refresh']);
+        Route::post('me',       [AuthController::class, 'me']);
     });
 });

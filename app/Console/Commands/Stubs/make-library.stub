@@ -4,8 +4,57 @@ namespace App\Libraries;
 
 class DummyLibrary
 {
-    public function index()
-    {
-        //TODO
-    }
+    /**
+         * Display a listing of the resource.
+         *
+         * @return Object
+         */
+        public function index()
+        {
+            //
+        }
+
+        /**
+         * Show the form for creating a new resource.
+         *
+         *@param  object  $request
+         * @return \Illuminate\Http\JsonResponse
+         */
+        public function create($request)
+        {
+            //
+        }
+
+        /**
+         * Display the specified resource.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\JsonResponse
+         */
+        public function show($id)
+        {
+            //
+        }
+
+        /**
+         * Show the form for editing the specified resource.
+         *
+         * @param  object  $request
+         * @return \Illuminate\Http\JsonResponse
+         */
+        public function edit($request)
+        {
+            //
+        }
+
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\JsonResponse
+         */
+        public function destroy($id)
+        {
+            //
+        }
 }
