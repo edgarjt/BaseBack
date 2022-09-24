@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use App\Libraries\AuthLibrary;
 use Illuminate\Http\Request;
 
-
 class AuthController extends Controller
 {
     protected $authLibrary;
 
     /**
-     * AuthController constructor.
      * @param AuthLibrary $authLibrary
      */
-    public function __construct(AuthLibrary $authLibrary) {
+    public function __construct(AuthLibrary $authLibrary)
+    {
         $this->authLibrary = $authLibrary;
     }
 

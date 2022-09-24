@@ -4,6 +4,7 @@ namespace App\Libraries;
 
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Facades\JWTAuth;
+
 class AuthLibrary
 {
     public function loginLibrary($request)

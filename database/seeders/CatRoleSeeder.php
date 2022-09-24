@@ -1,7 +1,9 @@
 <?php
 
-use App\Constants\CatRoleConstant;
-use App\Models\CatRoleModel;
+namespace Database\Seeders;
+
+use App\Constant\CatRoleConstant;
+use App\Models\CatRole;
 use Illuminate\Database\Seeder;
 
 class CatRoleSeeder extends Seeder
@@ -13,18 +15,18 @@ class CatRoleSeeder extends Seeder
      */
     public function run()
     {
-        $admin = CatRoleModel::where('code', CatRoleConstant::ADMIN)->first();
+        $admin = CatRole::where('code', CatRoleConstant::ADMIN)->first();
         if (is_null($admin)) {
-            CatRoleModel::create([
+            CatRole::create([
                 'name' => 'Admin del sistema',
                 'code' => 'admin',
                 'description' => 'Usuario con todos los permisos del sistema'
             ]);
         }
 
-        $user = CatRoleModel::where('code', CatRoleConstant::USER)->first();
+        $user = CatRole::where('code', CatRoleConstant::USER)->first();
         if (is_null($user)) {
-            CatRoleModel::create([
+            CatRole::create([
                 'name' => 'Cuenta de usuario',
                 'code' => 'user',
                 'description' => 'Usuario con permisos estándar'

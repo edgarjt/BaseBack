@@ -1,18 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UsersController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
-|--------------------------------------------------------------------------
-| Author: Edgar Salomon Jimenez Torres
-| Email: edgarjt97@gmail.com
-| Phone: 9934456273
-| Created: 2021-08-24 02:23:54
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
@@ -21,17 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::middleware('auth.jwt')->group( function () {
+Route::middleware('auth.jwt')->group(function () {
     Route::prefix('users')->group(function () {
-        Route::get    ('index',      [UsersController::class, 'index'  ]);
-        Route::post   ('create',     [UsersController::class, 'create' ]);
-        Route::put    ('edit',       [UsersController::class, 'edit'   ]);
-        Route::delete ('destroy',    [UsersController::class, 'destroy']);
-        Route::put    ('theme',      [UsersController::class, 'theme'  ]);
+        Route::resource('user', UserController::class);
     });
 });
 

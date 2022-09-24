@@ -1,9 +1,11 @@
 <?php
 
-use App\Models\CatRoleModel;
-use App\User;
-use App\Constants\CatRoleConstant;
-use App\Constants\UserConstant;
+namespace Database\Seeders;
+
+use App\Constant\CatRoleConstant;
+use App\Constant\UserConstant;
+use App\Models\CatRole;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,7 +19,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = User::where('email', UserConstant::EMAIL)->first();
-        $systemRole = CatRoleModel::where('code', CatRoleConstant::ADMIN)->first();
+        $systemRole = CatRole::where('code', CatRoleConstant::ADMIN)->first();
 
         if (is_null($user) && !is_null($systemRole)) {
             User::create([

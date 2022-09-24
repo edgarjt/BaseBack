@@ -1,12 +1,9 @@
 <?php
 
-
-namespace App\Constants;
-
+namespace App\Constant;
 
 class CatRoleConstant
 {
     const ADMIN = 'admin';
     const USER = 'user';
-
 }
